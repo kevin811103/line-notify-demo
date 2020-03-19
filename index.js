@@ -243,7 +243,7 @@ app.listen(3005, () => {
         console.log(today.getUTCHours() + 8);
         // 只在九點後 或是 1700前發送 
 
-        if (today.getUTCHours() + 8 >= 9 && today.getUTCHours() + 8 <= 17) {
+        if (today.getUTCHours() + 8 >= 9 && today.getUTCHours() + 8 < 17) {
             console.log("發送 ")
             console.log(today);
 
