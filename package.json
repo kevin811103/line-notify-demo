@@ -10,9 +10,11 @@
   "author": "kevin811103@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "nodemon": "^1.18.11",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
   }
 }
