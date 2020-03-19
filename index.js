@@ -125,7 +125,7 @@ function getVixDataWithWebPer30Sec() {
         }
     ).then((aa) => {
 
-        console.log(" new 有來打大樂透")
+        // console.log(" new 有來打大樂透")
 
         const $ = cheerio.load(aa); // 載入 body
         console.log("$:", $);
@@ -159,8 +159,8 @@ function getVixDataWithWebPer30Sec() {
 
         console.log(a + "\r\n" + b + "\r\n" + c + "\r\n" + d + "\r\n" + e);
 
-        const message = "\r\n"+  a + "\r\n" + b + "\r\n" + c + "\r\n" + d + "\r\n" + e;
-        pushMessage1(message,()=>{ return });
+        const message = "\r\n" + a + "\r\n" + b + "\r\n" + c + "\r\n" + d + "\r\n" + e;
+        pushMessage1(message, () => { return });
     });
 
 
@@ -234,10 +234,23 @@ app.get('/', function (req, res) {
 
 app.listen(3005, () => {
 
+    const today1 = new Date();
+
+   console.log(today1.getUTCHours() + 8);
     console.log('Example app listening on port 3000!');
     setInterval(() => {
-        getVixDataWithWebPer30Sec();
-        
-    }, 1000*60*3);
+        const today = new Date()
+        console.log(today.getUTCHours() + 8);
+        // 只在九點後 或是 1700前發送 
+
+        if (today.getUTCHours() + 8 >= 9 && today.getUTCHours() + 8 <= 17) {
+            console.log("發送 ")
+            console.log(today);
+
+            getVixDataWithWebPer30Sec();
+
+        }
+
+    }, 1000 * 60 * 3);
 
 });
